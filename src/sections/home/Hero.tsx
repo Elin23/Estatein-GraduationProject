@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import CountUpComponent from "../../components/cards/CountUpComponent";
 import RotatingText from "../../components/cards/RotatingText";
-import { heroContent } from "../../data/heroContent";
 import { useAppSelector } from "../../redux/hooks";
 
-const Hero = () => {
+interface HeroProps {
+  title: string;
+  description: string;
+}
+
+const Hero = ({ title, description }: HeroProps) => {
   const isBannerVisible = useAppSelector((state) => state.banner.isVisible);
 
   return (
@@ -23,14 +27,13 @@ const Hero = () => {
         {/* === Title and Description === */}
         <div data-aos="fade-right" data-aos-delay="300" className="px-4 lg-custom:px-0 flex flex-col gap-4 lg-custom:gap-5 2xl:gap-6 mt-20 lg-custom:mt-0">
           <h1 className="text-[28px] lg-custom:text-[47px] 2xl:text-[60px] font-semibold leading-[120%]">
-            {heroContent.title}
+            {title}
           </h1>
 
           <p className="text-sm lg-custom:text-base 2xl:text-lg font-medium text-gray40 dark:text-gray60 leading-[150%]">
-            {heroContent.description}
+            {description}
           </p>
         </div>
-
 
         {/* === Call-to-Action Buttons === */}
         <div data-aos="fade-right" className="flex flex-col lg-custom:flex-row gap-4 px-4 lg-custom:px-0">
@@ -60,7 +63,7 @@ const Hero = () => {
         <img
           src="/assets/images/MainHero/main.png"
           alt="Hero"
-          className=" lg-custom:hidden   absolute bottom-0  right-0 "
+          className="lg-custom:hidden absolute bottom-0 right-0"
         />
 
         {/* === Rotating Text Component === */}

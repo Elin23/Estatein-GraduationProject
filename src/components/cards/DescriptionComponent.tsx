@@ -1,6 +1,11 @@
 import { shallowEqual } from "react-redux";
 import { useAppSelector } from "../../redux/hooks";
 
+  const castingToNumber = (input: string) => {
+    const result = input.replace(/\D/g, "").padStart(2, "0");
+    return result;
+  };
+
 const DescriptionComponent = () => {
   const property = useAppSelector((state) => {
     let error = state.properties.error;
@@ -8,11 +13,6 @@ const DescriptionComponent = () => {
     let current = state.properties.current;
     return { error, loading, current };
   }, shallowEqual);
-
-  const castingToNumber = (input: string) => {
-    const result = input.replace(/\D/g, "").padStart(2, "0");
-    return result;
-  };
 
   return (
     <div

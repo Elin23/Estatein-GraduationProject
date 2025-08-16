@@ -13,6 +13,8 @@ import { hideBanner, showBanner } from "../redux/slices/bannerSlice";
 import CustomCursor from "../components/shared/CustomCursor";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import LogoIcon from "../components/icons/LogoIcon";
+import { navData } from "../data/NavData";
 
 const MainLayout = () => {
   const dispatch = useAppDispatch();
@@ -55,7 +57,7 @@ const MainLayout = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen font-urbanist flex-grow bg-white99 dark:bg-gray08 overflow-hidden">
+    <div className="flex flex-col min-h-screen font-urbanist flex-grow  overflow-hidden ">
       <CustomCursor />
       <ChatBot />
       {isLoading && <Loader />}
@@ -65,11 +67,18 @@ const MainLayout = () => {
             <TopBanner
               isVisible={isBannerVisible}
               onClose={handleBannerClose}
+              message="✨ Discover Your Dream Property with Estatein"
+              linkText = "Learn More"
+              link = "/properties"
             />
           )}
-          <Navbar isBannerVisible={isBannerVisible && !hasClosedBanner} />
+          <Navbar
+            isBannerVisible={isBannerVisible && !hasClosedBanner}
+            logo={LogoIcon} 
+            navData={navData} 
+            />
 
-          <main>
+          <main className="bg-white99 dark:bg-gray08">
             <Outlet />
             <CTA
               title="Start Your Real Estate Journey Today"
@@ -81,7 +90,7 @@ const MainLayout = () => {
           <Scroll2Top />
           <Footer
             links={defaultLinks}
-            footerNote="©2023 Estatein. All Rights Reserved."
+            footerNote="@2023 Estatein. All Rights Reserved."
             logo="/assets/icons/Footer/logo.svg"
           />
         </>

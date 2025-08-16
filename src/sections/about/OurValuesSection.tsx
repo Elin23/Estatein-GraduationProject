@@ -26,9 +26,9 @@ const OurValuesSection = () => {
       <div className="w-full flex flex-col gap-3.5 lg-custom:gap-4 2xl:gap-5">
         <div className="flex items-center gap-2.5 md:gap-4 2xl:gap-5">
           <div className="h-[60px] w-[60px] rounded-full bg-gray-300 dark:bg-gray-600"></div>
-          <div className="h-[30px] w-full rounded  bg-gray-300 dark:bg-gray-600"></div>
+          <div className="h-[30px] w-full rounded bg-gray-300 dark:bg-gray-600"></div>
         </div>
-        <div className="h-[60px] w-full rounded  bg-gray-300 dark:bg-gray-600"></div>
+        <div className="h-[60px] w-full rounded bg-gray-300 dark:bg-gray-600"></div>
       </div>
     </div>
   );
@@ -67,7 +67,7 @@ const OurValuesSection = () => {
                       index % 2 === 0 ? "lg:pr-[30px]" : ""
                     } relative not-last:border-b border-white90 dark:border-gray15 not-last:pb-5 lg:not-last:p-0 lg:not-last:border-0 `}
                     cardImg={ourValues[index].icon}
-                    cardTitle_1={values.title}
+                    cardTitle={values.title}
                     cardDesc={values.description}
                   >
                     {index !== 0 && index !== 1 ? (

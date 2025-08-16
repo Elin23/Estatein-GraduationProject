@@ -2,7 +2,7 @@ import type { CommonCardProps } from "../../types/CommonCard";
 
 const ValueCard = ({
   cardImg,
-  cardTitle_1,
+  cardTitle,
   titleStyle,
   titleSize = "text-xl lg-custom:text-2xl",
   cardDesc,
@@ -25,7 +25,7 @@ const ValueCard = ({
         <h5
           className={`text-black dark:text-white font-semibold group-hover:text-purple75 transition-colors duration-300 ${titleSize}`}
         >
-          {cardTitle_1}
+          {cardTitle}
         </h5>
       </div>
       {cardDesc && (
