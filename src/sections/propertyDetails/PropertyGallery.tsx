@@ -130,7 +130,7 @@ const PropertyGallery = ({ id }: PropertyGalleryProps) => {
     );
 
   return (
-    <div className="flex flex-col gap-12 text-black dark:text-white">
+    <div className="flex flex-col gap-5 lg-custom:gap-6 text-black dark:text-white">
       <div className="flex justify-between items-center">
         <div className="flex flex-col lg-custom:flex-row items-center gap-5">
           <h1 className="font-semibold text-xl 2xl:text-3xl">
@@ -150,7 +150,7 @@ const PropertyGallery = ({ id }: PropertyGalleryProps) => {
       {galleryDesktop}
       {galleryMobile}
 
-      <div className="flex flex-col lg-custom:flex-row gap-5">
+      <div className="flex flex-col lg-custom:flex-row gap-5 2xl:gap-6">
         <DescriptionComponent />
         <KeyFeaturesComponent />
       </div>

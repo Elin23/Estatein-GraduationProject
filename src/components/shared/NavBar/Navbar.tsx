@@ -14,7 +14,7 @@ import {
   navMobileContactAos,
 } from "../../../utlis/Anamation";
 import LogoIcon from "../../icons/LogoIcon";
-import { navData } from "../../../data/NavData";
+import { navData } from "../../../data/navData";
 
 type NavbarProps = {
   isBannerVisible: boolean;
@@ -32,7 +32,7 @@ const Navbar = ({ isBannerVisible }: NavbarProps) => {
 
   return (
     <nav
-      className={`bg-purple70/60 backdrop-blur-xl dark:backdrop-blur-none dark:bg-gray10 dark:text-white py-5 lg-custom:py-3.5 2xl:py-5 fixed w-full z-50 border-b-2 border-purple75 dark:border-b-2 dark:border-b-gray15 transition-all duration-700 ease-in-out ${
+      className={`bg-purple70/60 backdrop-blur-xl dark:backdrop-blur-none dark:bg-gray10 dark:text-white py-5 lg-custom:py-3.5 2xl:py-5 fixed w-full z-50 border-b-2 border-purple75 dark:border-b-2 dark:border-b-gray15 transition-all duration-700 ease-in-out lg-custom:h-[77px] 2xl:h-[95px] ${
         isBannerVisible ? "top-[78px] md:top-[49px] 2xl:top-[63px]" : "top-0"
       }`}
     >
@@ -50,7 +50,7 @@ const Navbar = ({ isBannerVisible }: NavbarProps) => {
           </NavLink>
 
           {/* Desktop Menu */}
-          <ul className="hidden lg-custom:flex lg-custom:gap-6 2xl:gap-[30px] 2xl:font-medium">
+          <ul className="hidden lg-custom:flex lg-custom:gap-6 2xl:gap-[30px] font-medium 2xl:text-lg lg-custom:text-sm leading-[150%]">
             {navData.map((link, index) => (
               <li
                 key={index}
@@ -73,7 +73,7 @@ const Navbar = ({ isBannerVisible }: NavbarProps) => {
                 scrollToTop();
               }}
               className={({ isActive }) =>
-                `hidden lg-custom:block text-white font-medium lg-custom:py-3 lg-custom:px-5 2xl:py-3.5 2xl:px-6 lg-custom:rounded-lg 2xl:rounded-[10px] dark:border dark:border-gray15 ${
+                `hidden lg-custom:block text-white font-medium lg-custom:py-3 lg-custom:px-5 2xl:py-3.5 2xl:px-6 lg-custom:rounded-lg 2xl:rounded-[10px] dark:border dark:border-gray15 2xl:text-lg leading-[150%]${
                   isActive ? "dark:bg-gray08 bg-gray08/60" : "dark:bg-gray08 bg-gray08/60"
                 } transition-all duration-300 ease-in-out`
               }
