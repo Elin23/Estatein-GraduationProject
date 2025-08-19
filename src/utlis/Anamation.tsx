@@ -74,6 +74,14 @@ const threeColsGridDelay = (i: number) => {
 // NAVBAR
 // ============================================================================
 
+export const navMobileBlurAos = (): DataAttrs =>
+  buildAos("fade", {
+    duration: 400,
+    easing: "linear", // linear كما طلبت
+    once: true,
+  });
+
+  
 export const navRootAos = (): DataAttrs =>
   // nav container
   buildAos("fade-down", {

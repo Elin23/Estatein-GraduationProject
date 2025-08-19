@@ -1,60 +1,54 @@
-import {
-  useState,
-  useEffect,
-  useCallback,
-  type FC,
-  memo,
-  useMemo,
-} from "react";
-import { NavLink } from "react-router-dom";
-import NavItem from "./NavItem";
-import HamburgerButton from "./HamburgerButton";
-import ToggleButton from "../../ui/ToggleButton";
-import { SectionWrapper } from "../../../layouts/SectionWrapper";
-import { scrollToTop } from "../../../utlis/scrollToTop";
-import AOS from "aos";
+import { useState, useEffect, useCallback, type FC, memo, useMemo } from "react"
+import { NavLink } from "react-router-dom"
+import NavItem from "./NavItem"
+import HamburgerButton from "./HamburgerButton"
+import ToggleButton from "../../ui/ToggleButton"
+import { SectionWrapper } from "../../../layouts/SectionWrapper"
+import { scrollToTop } from "../../../utlis/scrollToTop"
+import AOS from "aos"
 import {
   navDesktopItemAos,
   navDesktopContactAos,
   navMobileContainerAos,
   navMobileItemAos,
   navMobileContactAos,
-} from "../../../utlis/Anamation";
+  navMobileBlurAos,
+} from "../../../utlis/Anamation"
 
 type NavLinkType = {
-  name: string;
-  path: string;
-};
+  name: string
+  path: string
+}
 
 type NavbarProps = {
-  isBannerVisible: boolean;
-  logo: FC<{ className?: string }>;
-  navData: NavLinkType[];
-};
+  isBannerVisible: boolean
+  logo: FC<{ className?: string }>
+  navData: NavLinkType[]
+}
 
-const MemoNavItem = memo(NavItem);
-const MemoHamburgerButton = memo(HamburgerButton);
+const MemoNavItem = memo(NavItem)
+const MemoHamburgerButton = memo(HamburgerButton)
 
 const Navbar = ({ isBannerVisible, logo: Logo, navData }: NavbarProps) => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
   const handleCloseMenu = useCallback(() => {
-    setIsMenuOpen(false);
-    scrollToTop();
-  }, []);
+    setIsMenuOpen(false)
+    scrollToTop()
+  }, [])
 
-  const mainNavLinks = useMemo(() => navData.slice(0, 4), [navData]);
+  const mainNavLinks = useMemo(() => navData.slice(0, 4), [navData])
   const contactLink = useMemo(
     () => navData.at(-1) || { name: "Contact Us", path: "/contact" },
     [navData]
-  );
+  )
 
   useEffect(() => {
     if (isMenuOpen) {
-      const raf = requestAnimationFrame(() => AOS.refresh());
-      return () => cancelAnimationFrame(raf);
+      const raf = requestAnimationFrame(() => AOS.refresh())
+      return () => cancelAnimationFrame(raf)
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen])
 
   return (
     <nav
@@ -113,50 +107,45 @@ const Navbar = ({ isBannerVisible, logo: Logo, navData }: NavbarProps) => {
         </div>
 
         {isMenuOpen && (
-          <div
-            className="overflow-hidden lg-custom:hidden mt-4"
-            {...navMobileContainerAos()}
-          >
-            <ul
-              className="flex flex-col gap-4 bg-gray08/60 dark:bg-gray08 p-5 rounded-lg border border-gray15"
-              role="menu"
-            >
-              {mainNavLinks.map((link, index) => (
-                <li key={link.name} {...navMobileItemAos(index)} role="none">
-                  <MemoNavItem
-                    to={link.path}
-                    label={link.name}
-                    mobile
-                    onClick={handleCloseMenu}
-                  />
-                </li>
-              ))}
+  <div className="lg-custom:hidden mt-4 relative">
+    {/* blur layer */}
+    <div
+      className="absolute inset-0 rounded-lg bg-gray08/30 backdrop-blur-lg"
+      {...navMobileBlurAos()}
+    />
 
-              <li
-                className="mx-auto flex gap-3"
-                {...navMobileContactAos(navData.length)}
-                role="none"
-              >
-                <NavLink
-                  onClick={handleCloseMenu}
-                  to={contactLink.path}
-                  className={({ isActive }) =>
-                    `block py-2 px-4 rounded-md text-center text-white ${
-                      isActive
-                        ? "dark:bg-purple60 bg-purple60/80"
-                        : "dark:bg-gray08 bg-gray08/60"
-                    }`
-                  }
-                >
-                  {contactLink.name}
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-        )}
+    {/* ul content */}
+    <ul
+      className="relative flex flex-col gap-4 p-5 rounded-lg border border-gray15 z-10"
+      {...navMobileContainerAos()}
+      role="menu"
+    >
+      {mainNavLinks.map((link, index) => (
+        <li key={link.name} {...navMobileItemAos(index)} role="none">
+          <MemoNavItem to={link.path} label={link.name} mobile onClick={handleCloseMenu} />
+        </li>
+      ))}
+
+      <li className="mx-auto flex gap-3" {...navMobileContactAos(navData.length)} role="none">
+        <NavLink
+          onClick={handleCloseMenu}
+          to={contactLink.path}
+          className={({ isActive }) =>
+            `block py-2 px-4 rounded-md text-center text-white ${
+              isActive ? "dark:bg-purple60 bg-purple60/80" : "dark:bg-gray08 bg-gray08/60"
+            }`
+          }
+        >
+          {contactLink.name}
+        </NavLink>
+      </li>
+    </ul>
+  </div>
+)}
+
       </SectionWrapper>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
