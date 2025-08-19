@@ -50,6 +50,7 @@ const GenericSlider = <T,>({
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
     slides: { perView: perViewCurrent, spacing: spacing },
     rubberband: false,
+    drag: false,
     created: (s) => {
       const rel = Math.round(s.track?.details?.rel ?? 0);
       setCurrentIndex(rel);
