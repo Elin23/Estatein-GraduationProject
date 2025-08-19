@@ -67,16 +67,17 @@ const Hero = ({ title, description }: HeroProps) => {
       <div className="relative  mt-30 lg-custom:mt-0 lg-custom:h-full mx-4 lg-custom:mx-0 lg-custom:px-0 lg-custom:w-[55%]  flex items-end border border-white90 dark:border-gray15 lg-custom:border-none rounded-xl lg-custom:rounded-none bg-white97 dark:bg-gray10 bg-[linear-gradient(to_bottom_left,_#2A213F,_#19191900,_#19191900)]">
         {/* === Background Abstract Design Image === */}
         <img
-          src="/assets/images/AbstractDesign5.png"
+          rel="preload"
+          src="/assets/images/AbstractDesign5.webp"
           alt="Abstract Design"
           className="w-full h-full object-cover"
         />
 
         {/* === Foreground Hero Image === */}
         <img
-          src="/assets/images/MainHero/main.png"
+          src="/assets/images/MainHero/main.webp"
           alt="Hero"
-          className="lg-custom:hidden absolute bottom-0 right-0"
+          className="lg-custom:hidden absolute object-cover object-bottom bottom-0 right-0"
         />
 
         {/* === Rotating Text Component === */}
@@ -84,11 +85,12 @@ const Hero = ({ title, description }: HeroProps) => {
         {/* === Foreground Hero Image === */}
 
         <img
+          rel="preload"
           data-aos="fade-up"
           data-aos-delay="300"
-          src="/assets/images/MainHero/main.png"
+          src="/assets/images/MainHero/main.webp"
           alt="Hero"
-          className="hidden lg-custom:block  absolute bottom-0 lg-custom:h-[calc(100vh-142px)]  right-10"
+          className="hidden lg-custom:block  absolute bottom-0 lg-custom:h-[calc(100vh-142px)] object-contain lg-custom:object-cover object-bottom right-10"
         />
       </div>
     </div>

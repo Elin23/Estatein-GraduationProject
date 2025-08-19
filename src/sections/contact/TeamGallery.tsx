@@ -18,7 +18,7 @@ function TeamGallery() {
         {...tgContainerAos()}
       >
         <img
-          src="/assets/images/AbstractDesign4.png"
+          src="/assets/images/AbstractDesign4.webp"
           alt="Team Gallery Background"
           className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
           loading="lazy"
