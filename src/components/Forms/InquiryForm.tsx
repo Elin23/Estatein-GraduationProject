@@ -12,6 +12,8 @@ import type { CustomFormData } from "../../types/Form";
 import { ref, push, serverTimestamp } from "firebase/database";
 import { db } from "../../firebaseConfig";
 import { selectFields, contactMethods } from "../../config/formConfig";
+import { useAppSelector } from "../../redux/hooks";
+import { shallowEqual } from "react-redux";
 
 type InquiryFormProps = {
   type: "inquiry" | "contact" | "property";
@@ -50,7 +52,15 @@ function InquiryForm({
   });
 
   const [showAlert, setShowAlert] = useState(false);
-
+  const { current, error, loading } = useAppSelector(
+        (state) => ({
+          current: state.properties.current,
+          error: state.properties.error,
+          loading: state.properties.loading,
+        }),
+        shallowEqual
+      );
+    
   const formPadding =
     type === "property"
       ? "p-5 lg-custom:p-[40px] 2xl:p-[50px] gap-[30px] lg-custom:gap-[40px] 2xl:!gap-[50px]"
@@ -66,6 +76,13 @@ function InquiryForm({
       : "grid p-0 m-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[30px] 2xl:gap-[50px]";
 
   const onSubmit = async (data: CustomFormData) => {
+    if(propertyTitle != null){
+      data.location = current.location;
+      data.bathrooms = current.bathrooms;
+      data.bedrooms = current.bedrooms;
+      data.propertyType = current.type;
+      data.budget = current.price;
+    }
     const payload = { ...data, type, createdAt: serverTimestamp(), agreed };
     try {
       await push(ref(db, `forms/${type}`), payload);
