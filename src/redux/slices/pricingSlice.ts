@@ -189,10 +189,12 @@ export const subscribePricing = () => (dispatch: any) => {
         transformed[id] = transformPropertyData(propertyData);
       });
 
+      const firstPropertyId = Object.keys(transformed)[0] || null;
+
       dispatch(
         setPricing({
           properties: transformed,
-          selectedPropertyId: Object.keys(transformed) || null,
+          selectedPropertyId: firstPropertyId,
         })
       );
     } else {

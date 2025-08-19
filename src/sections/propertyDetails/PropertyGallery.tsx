@@ -155,6 +155,7 @@ const PropertyGallery = ({ id }: PropertyGalleryProps) => {
             Price
           </p>
           <p className="font-semibold text-lg lg-custom:text-xl 2xl:text-2xl">
+            <span>$</span>
             {current?.price}
           </p>
         </div>
