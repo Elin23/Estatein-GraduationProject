@@ -52,7 +52,7 @@ function InquiryForm({
   });
 
   const [showAlert, setShowAlert] = useState(false);
-  const { current, error, loading } = useAppSelector(
+  const { current } = useAppSelector(
         (state) => ({
           current: state.properties.current,
           error: state.properties.error,
