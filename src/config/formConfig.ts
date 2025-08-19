@@ -12,7 +12,7 @@ export const selectFields:Record<FormType, SelectField[]> = {
       label: "Inquiry Type",
       name: "inquiryType",
       placeholder: "Select Inquiry Type",
-      options: ["General", "Support", "Sales"],
+      options: ["General", "Support"],
     },
     {
       label: "How Did You Hear About Us?",

@@ -71,7 +71,7 @@ const Navbar = ({ isBannerVisible, logo: Logo, navData }: NavbarProps) => {
             <Logo className="w-24 md:w-28 2xl:w-40 text-white" />
           </NavLink>
           <ul
-            className="hidden lg-custom:flex lg-custom:gap-6 2xl:gap-[30px] 2xl:font-medium leading-[150%] lg-custom:text-sm 2xl:text-lg"
+            className="hidden lg-custom:flex gap-5 2xl:font-medium leading-[150%] lg-custom:text-sm 2xl:text-lg"
             role="menubar"
           >
             {mainNavLinks.map((link, index) => (
@@ -92,7 +92,9 @@ const Navbar = ({ isBannerVisible, logo: Logo, navData }: NavbarProps) => {
               onClick={handleCloseMenu}
               className={({ isActive }) =>
                 `hidden lg-custom:block text-white font-medium lg-custom:py-3 lg-custom:px-5 2xl:py-3.5 2xl:px-6 lg-custom:rounded-lg 2xl:rounded-[10px] dark:border dark:border-gray15 ${
-                  isActive ? "dark:bg-gray08 bg-gray08/60 hover:bg-gray08/50 dark:hover:bg-gray10/60" : "dark:bg-gray08 bg-gray08/60 hover:bg-gray08/80 dark:hover:bg-gray10"
+                  isActive
+                    ? "dark:bg-gray08 bg-gray08/60 hover:bg-gray08/50 dark:hover:bg-gray10/60"
+                    : "dark:bg-gray08 bg-gray08/60 hover:bg-gray08/80 dark:hover:bg-gray10"
                 } transition-all duration-300 ease-in-out`
               }
               {...navDesktopContactAos()}
