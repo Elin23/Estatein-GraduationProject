@@ -109,7 +109,7 @@ function ReviewModal({ closeModal, onSuccess }: ReviewModalProps) {
 
   return createPortal(
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center px-4 transition-opacity duration-300
+      className={`fixed inset-0 z-50 flex items-center justify-center px-5 transition-opacity duration-300
       ${
         isVisible ? "opacity-100" : "opacity-0"
       } backdrop-blur-xs bg-[#00000033] dark:bg-[#e3e3e380]`}
@@ -118,7 +118,7 @@ function ReviewModal({ closeModal, onSuccess }: ReviewModalProps) {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className={`relative w-full max-w-3xl bg-white dark:bg-black/70 rounded-2xl shadow-2xl overflow-hidden p-8 flex flex-col gap-8
+        className={`relative w-full max-h-[80vh] overflow-y-auto max-w-3xl bg-white dark:bg-black rounded-[10px] 2xl:rounded-xl shadow-2xl overflow-hidden p-8 flex flex-col gap-8
         transform transition-all duration-300
         ${
           isVisible
@@ -130,12 +130,12 @@ function ReviewModal({ closeModal, onSuccess }: ReviewModalProps) {
         <button
           type="button"
           onClick={handleClose}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-red-500 hover:text-white text-gray-600 dark:text-gray-300 transition"
+          className="absolute top-4 right-4 w-6 h-6 md:w-8 md:h-8 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-red-500 hover:text-white text-gray-600 dark:text-gray-300 transition"
         >
           ✕
         </button>
 
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white border-b-2 border-purple65 pb-5">
           Share Your Review
         </h2>
 
@@ -181,7 +181,7 @@ function ReviewModal({ closeModal, onSuccess }: ReviewModalProps) {
                 onChange={handleImageChange}
               />
               <div
-                className="w-[200px] h-[140px] rounded-xl border-2 border-dashed border-purple-400 cursor-pointer flex items-center justify-center overflow-hidden bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                className="w-[200px] h-[140px] rounded-xl border-2 border-dashed border-purple65 cursor-pointer flex items-center justify-center overflow-hidden bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
                 onClick={() => imgRef.current?.click()}
               >
                 {uploading ? (
@@ -224,7 +224,7 @@ function ReviewModal({ closeModal, onSuccess }: ReviewModalProps) {
           <button
             type="submit"
             disabled={loading}
-            className="bg-purple-600 hover:bg-purple-700 disabled:opacity-60 px-8 py-3 rounded-xl text-white font-semibold shadow-lg transition"
+            className="bg-purple65 hover:bg-purple-700 disabled:opacity-60 px-8 py-3 rounded-xl text-white font-semibold shadow-lg transition"
           >
             {loading ? "Submitting..." : "Submit Review"}
           </button>

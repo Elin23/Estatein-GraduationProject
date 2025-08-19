@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const DOTS = "...";
 function range(start: number, end: number) {
@@ -9,7 +10,7 @@ function PaginationComponent({
   currentPage,
   totalPages,
   onPageChange,
-  siblingCount = 1,
+  siblingCount = 6,
 }: {
   currentPage: number;
   totalPages: number;
@@ -41,59 +42,55 @@ function PaginationComponent({
 
   if (totalPages <= 1) return null;
 
+  const baseBtn =
+    "rounded-full flex items-center justify-center " +
+    " hover:bg-purple60 text-white " +
+    "ring-2 ring-purple65 ring-offset-2 ring-offset-white dark:ring-offset-gray-900 " +
+    "disabled:opacity-60 disabled:cursor-not-allowed transition-colors focus:outline-none focus-visible:ring-2";
+
+  const circleSize = "w-9 h-9 ";
+
   return (
     <div className="flex justify-center items-center gap-2 mx-8">
-      <button
-        onClick={() => onPageChange(1)}
-        disabled={currentPage === 1}
-        className="px-1 md:px-3 py-1 border rounded disabled:opacity-50 dark:bg-gray08 bg-white99 dark:border-gray15 border-white90  dark:text-white text-black "
-      >
-        First
-      </button>
+      <div className="flex  justify-center gap-3  sm:space-y-0 space-y-3 flex-wrap mt-6">
+        <button
+          onClick={() => onPageChange(Math.max(1, currentPage - 1))}
+          disabled={currentPage === 1}
+          className={`${baseBtn} ${circleSize} bg-purple75 lg-custom:mb-0`}
+        >
+          <ChevronLeft size={16} />
+        </button>
+        <div className="flex !items-center justify-center gap-3 ">
+          {paginationRange.map((page, index) =>
+            typeof page === "number" ? (
+              <button
+                key={index}
+                onClick={() => onPageChange(page)}
+                className={`${baseBtn} ${circleSize} ${
+                  page === currentPage ? "bg-purple60" : "bg-purple75"
+                }`}
+              >
+                {page}
+              </button>
+            ) : (
+              <span
+                key={index}
+                className="px-2 text-gray-400 select-none text-[12px] sm:text-sm"
+              >
+                {page}
+              </span>
+            )
+          )}
+        </div>
 
-      <button
-        onClick={() => onPageChange(Math.max(1, currentPage - 1))}
-        disabled={currentPage === 1}
-        className="px-1 md:px-3 py-1 border rounded disabled:opacity-50 dark:bg-gray08 bg-white99 dark:border-gray15 border-white90 dark:text-white text-black "
-      >
-        Prev
-      </button>
-
-      {paginationRange.map((p, idx) =>
-        p === DOTS ? (
-          <span key={idx} className="px-2">
-            …
-          </span>
-        ) : (
-          <button
-            key={p}
-            onClick={() => onPageChange(Number(p))}
-            className={`px-3 py-1 border rounded dark:border-gray15 border-white90 ${
-              p === currentPage
-                ? "bg-purple60 dark:text-white90 text-black"
-                : "bg-white90 text-black"
-            }`}
-          >
-            {p}
-          </button>
-        )
-      )}
-
-      <button
-        onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
-        disabled={currentPage === totalPages}
-        className="px-1 md:px-3 py-1 border rounded disabled:opacity-50 dark:bg-gray08 bg-white99 dark:border-gray15 border-white90 dark:text-white text-black"
-      >
-        Next
-      </button>
-
-      <button
-        onClick={() => onPageChange(totalPages)}
-        disabled={currentPage === totalPages}
-        className="px-1 md:px-3 py-1 border rounded disabled:opacity-50 dark:bg-gray08 bg-white99 dark:border-gray15 border-white90 dark:text-white text-black"
-      >
-        Last
-      </button>
+        <button
+          onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+          disabled={currentPage === totalPages}
+          className={`${baseBtn} ${circleSize} bg-purple75  lg-custom:mb-0`}
+        >
+          <ChevronRight size={16} />
+        </button>
+      </div>
     </div>
   );
 }

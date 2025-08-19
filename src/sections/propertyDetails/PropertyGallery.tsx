@@ -81,7 +81,7 @@ const PropertyGallery = ({ id }: PropertyGalleryProps) => {
     return (
       // Skeleton Loader
       <div className="flex flex-col gap-12">
-        <div className="flex justify-between items-center">
+        <div className="flex min-md:justify-between items-end md:items-center gap-5">
           <div className="flex flex-col lg-custom:flex-row items-center gap-5">
             <SkeletonBox className="h-9 w-24" />
             <SkeletonBox className="h-9 w-24" />
@@ -137,9 +137,9 @@ const PropertyGallery = ({ id }: PropertyGalleryProps) => {
     );
 
   return (
-    <div className="flex flex-col gap-5 lg-custom:gap-6 text-black dark:text-white">
-      <div className="flex justify-between items-center">
-        <div className="flex flex-col lg-custom:flex-row items-center gap-5">
+    <div className="flex flex-col gap-[30px] lg-custom:gap-10 2xl:gap-[50px] text-black dark:text-white">
+      <div className="flex min-md:justify-between items-end md:items-center">
+        <div className="flex max-md:flex-col items-start md:items-center gap-2.5 md:gap-5">
           <h1 className="font-semibold text-xl lg-custom:text-2xl 2xl:text-3xl">
             {current?.title}
           </h1>
@@ -150,11 +150,13 @@ const PropertyGallery = ({ id }: PropertyGalleryProps) => {
             </h2>
           </div>
         </div>
-        <div className="flex lg-custom:flex-col items-center lg-custom:items-start gap-1 lg-custom:gap-0.5">
+        <div className="flex lg-custom:flex-col items-center lg-custom:items-start gap-1 lg-custom:gap-0.5 max-md:mb-[5px] max-md:-ml-16">
           <p className="text-gray40 dark:text-gray60 text-sm 2xl:text-[16px] font-medium">
             Price
           </p>
-          <p className="font-semibold text-xl 2xl:text-2xl">{current?.price}</p>
+          <p className="font-semibold text-lg lg-custom:text-xl 2xl:text-2xl">
+            {current?.price}
+          </p>
         </div>
       </div>
 

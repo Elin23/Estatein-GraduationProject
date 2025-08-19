@@ -11,9 +11,11 @@ import type { PropertyType } from "../types/Property";
 const AllPropertiesPage = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { all: items, loading, error } = useAppSelector(
-    (state) => state.properties
-  );
+  const {
+    all: items,
+    loading,
+    error,
+  } = useAppSelector((state) => state.properties);
 
   const [searchParams] = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;

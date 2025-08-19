@@ -38,7 +38,7 @@ function OurClientsSection() {
       id="testimonials"
       className="pt-20 lg-custom:pt-[120px] 2xl:pt-[150px]"
     >
-      <section className="relative">
+      <section className="relative" id="testimonials">
         <Title
           heading="What Our Clients Say"
           paragraph="Read the success stories and heartfelt testimonials from our valued clients. Discover why they chose Estatein for their real estate needs."

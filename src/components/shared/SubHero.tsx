@@ -11,7 +11,9 @@ function SubHero({ title, desc, classes }: SubHeroProps) {
   return (
     <SectionWrapper
       id="find"
-      className={`pt-[122px] 2xl:pt-[240px] lg-custom:pt-[190px] pb-[50px] bg-gradient-to-l from-[#FBFAFF] via-[#DBCEFD] to-[#dbcefd] dark:bg-gradient-to-r dark:from-gray15 dark:via-transparent dark:to-transparent ${classes}`}
+      className={`huge:!max-w-[1596px] pt-[122px] 2xl:pt-[240px] lg-custom:pt-[190px] pb-[50px] bg-gradient-to-l from-[#FBFAFF] via-[#DBCEFD] to-[#dbcefd] 
+                  dark:bg-[linear-gradient(125deg,rgba(38,38,38,0.9)_0%,rgba(38,38,38,0.8)_5%,rgba(38,38,38,0.6)_10%,rgba(38,38,38,0.5)_25%,transparent_40%)]
+               ${classes}`}
     >
       <Title
         anamation="fade-right"
