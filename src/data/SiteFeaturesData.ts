@@ -38,18 +38,18 @@ export const SiteFeaturesHomeData: CommonCardProps[] = [
         cardTitle: "Unlock Property Value",
         cardImg: "/assets/icons/CardUnderHero/unlock.svg",
         HeadingTag: "link",
-        titleLink: "/services"
+        titleLink: "/services#property"
     },
     {
         cardTitle: "Effortless Property Management",
         cardImg: "/assets/icons/CardUnderHero/effortless.svg",
         HeadingTag: "link",
-        titleLink: "/services"
+        titleLink: "/services#management"
     },
     {
         cardTitle: "Smart Investments, Informed Decisions",
         HeadingTag: "link",
         cardImg: "/assets/icons/CardUnderHero/smart.svg",
-        titleLink: "/services"
+        titleLink: "/services#investments"
     },
 ]

@@ -33,7 +33,8 @@ const router = createBrowserRouter([
       { path: "allFaq", element: <AllFaqsPage /> },
       { path: "allTestimonials", element: <AllClientsPage /> },
       { path: "allProperties", element: <AllPropertiesPage /> },
-      { path: "under-process", element: <UnderProcessPage /> },    ],
+      { path: "under-process", element: <UnderProcessPage /> },
+    ],
   },
 ]);
 

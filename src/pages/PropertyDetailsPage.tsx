@@ -9,7 +9,7 @@ function PropertyDetailsPage() {
   const { id } = useParams();
 
   return (
-    <div className="mt-28">
+    <div className="mt-32 lg-custom:mt-[157px] 2xl:mt-[219px]">
       <SectionWrapper>{id && <PropertyGallery id={id} />}</SectionWrapper>
       <PropertyDetailsForm />
       <PricingDetailsSection />
