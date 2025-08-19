@@ -1,15 +1,16 @@
-import { useEffect, useMemo, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector, useDispatch, shallowEqual } from "react-redux";
-import type { RootState, AppDispatch } from "../../redux/store";
+import { useDispatch, shallowEqual } from "react-redux";
+import type { AppDispatch } from "../../redux/store";
 import Title from "../../components/shared/Title";
 import { SectionWrapper } from "../../layouts/SectionWrapper";
-import { listenToProperties } from "../../utlis/firebaseListeners/propertiesListener";
-import type { PropertyType } from "../../redux/types/PropertyType";
+import { fetchPropertyById } from "../../redux/thunks/propertyByIdThunk";
+import { useAppSelector } from "../../redux/hooks";
 
 const InquiryForm = lazy(() => import("../../components/Forms/InquiryForm"));
 
 const FormSkeleton: React.FC = () => (
+  
   <SectionWrapper className="py-20 lg-custom:py-[120px] 2xl:py-[150px]">
     <div className="grid grid-cols-1 xl:grid-cols-[32.21%_61.53%] 2xl:grid-cols-[33.38%_61.38%] gap-y-10 md:gap-x-10 xl:gap-x-[80px] 2xl:gap-x-[100px]">
       {/* left side */}
@@ -55,29 +56,29 @@ const SkeletonBox: React.FC<{ height?: string }> = ({ height = "h-[52px]" }) => 
 function PropertyDetailsForm() {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
-
-  const { all, loading } = useSelector(
-    (state: RootState) => ({
-      all: state.properties.all,
+  const { current, error, loading } = useAppSelector(
+    (state) => ({
+      current: state.properties.current,
+      error: state.properties.error,
       loading: state.properties.loading,
     }),
     shallowEqual
   );
-
+  
   useEffect(() => {
-    if (!all.length && !loading) {
-      const maybeUnsub = dispatch(listenToProperties() as any);
-      return typeof maybeUnsub === "function" ? (maybeUnsub as () => void) : undefined;
+    if (id) {
+      console.log("Fetching property with id:", id);
+      dispatch(fetchPropertyById(id));
     }
-    return undefined;
-  }, [dispatch, all.length, loading]);
+  }, [id, dispatch]);
+  
+  useEffect(() => {
+    if (current) {
+      console.log("Current property data:", current);
+    }
+  }, [current]);
 
-  const property = useMemo(
-    () => (id ? all.find((p:PropertyType) => p.id === id) : undefined),
-    [all, id]
-  );
-
-  if (loading || !property) {
+  if (loading || !current) {
     return <FormSkeleton />;
   }
 
@@ -87,7 +88,7 @@ function PropertyDetailsForm() {
         <Title
           titleStyle="w-full"
           starImg
-          heading={`Inquire About ${property.title}`}
+          heading={`Inquire About ${current.title}`}
           paragraph="Interested in this property? Fill out the form below, and our real estate experts will get back to you with more details, including scheduling a viewing and answering any questions you may have."
           paragraphStyle="lg-custom:w-[85%] 2xl:w-[86%] w-full"
           data-aos="fade-left"
@@ -101,8 +102,8 @@ function PropertyDetailsForm() {
           >
             <InquiryForm
               type="property"
-              propertyTitle={property.title}
-              propertyLocation={property.location ?? "Unknown Location"}
+              propertyTitle={current.title}
+              propertyLocation={current.location ?? "Unknown Location"}
             />
           </Suspense>
         </div>
