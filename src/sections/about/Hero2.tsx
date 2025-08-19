@@ -21,13 +21,13 @@ const Hero2 = () => {
           className="relative border border-white90 dark:border-gray15 rounded-xl overflow-hidden lg-custom:w-[48%] "
         >
           <img
-            src="/assets/images/AbstractDesign5.png"
+            src="/assets/images/AbstractDesign5.webp"
             alt="Abstract Design"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
           <div className="relative h-full flex items-end justify-center">
             <img
-              src="/assets/images/MainHero/ourJourney.png"
+              src="/assets/images/MainHero/ourJourney.webp"
               alt=""
               className="w-full h-full object-contain"
             />

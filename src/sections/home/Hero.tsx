@@ -67,7 +67,8 @@ const Hero = ({ title, description }: HeroProps) => {
       <div className="relative  mt-30 lg-custom:mt-0 lg-custom:h-full mx-4 lg-custom:mx-0 lg-custom:px-0 lg-custom:w-[55%]  flex items-end border border-white90 dark:border-gray15 lg-custom:border-none rounded-xl lg-custom:rounded-none bg-white97 dark:bg-gray10 bg-[linear-gradient(to_bottom_left,_#2A213F,_#19191900,_#19191900)]">
         {/* === Background Abstract Design Image === */}
         <img
-          src="/assets/images/AbstractDesign5.png"
+          rel="preload"
+          src="/assets/images/AbstractDesign5.webp"
           alt="Abstract Design"
           className="w-full h-full object-cover"
         />
@@ -84,6 +85,7 @@ const Hero = ({ title, description }: HeroProps) => {
         {/* === Foreground Hero Image === */}
 
         <img
+          rel="preload"
           data-aos="fade-up"
           data-aos-delay="300"
           src="/assets/images/MainHero/main.webp"
