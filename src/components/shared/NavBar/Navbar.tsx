@@ -112,14 +112,18 @@ const Navbar = ({ isBannerVisible, logo: Logo, navData }: NavbarProps) => {
       </SectionWrapper>
     </nav>
     {isMenuOpen && (
-  <div className="lg-custom:hidden  fixed left-4 right-4 top-[calc(95px+16px)] z-[60] ">
-    {/* blur layer */}
+   <div
+    className={`lg-custom:hidden fixed left-4 right-4 z-[60] transition-all duration-700 ease-in-out
+      ${isBannerVisible 
+        ? "top-[calc(95px+78px+16px)] lg-custom:top-[calc(95px+49px+16px)] 2xl:top-[calc(95px+63px+16px)]"
+        : "top-[calc(95px+16px)]"}`
+    }
+  >
     <div
       className="absolute inset-0 rounded-lg backdrop-blur-xl bg-purple70/60 dark:bg-gray08/30"
       {...navMobileBlurAos()}
     />
 
-    {/* ul content */}
     <ul
       className="relative z-10 flex flex-col gap-4 p-5 rounded-lg border dark:border-gray15 border-purple99"
       {...navMobileContainerAos()}
