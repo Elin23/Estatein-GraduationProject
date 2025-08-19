@@ -20,7 +20,7 @@ const TopBanner: FC<TopBannerProps> = ({
 }) => {
   return (
     <div
-      className={`h-[78px] lg-custom:h-[49px] 2xl:h-[63px] relative z-50 border-b border-b-white90 dark:border-b-gray15 bg-white97 dark:bg-gray10 bg-[url("/assets/images/TopBanner/AbstractDesign(1).png")] lg-custom:bg-[url("/assets/images/TopBanner/AbstractDesign.png")] bg-no-repeat bg-cover transition-all duration-500 ease-in-out transform ${
+      className={`h-[78px] lg-custom:h-[49px] 2xl:h-[63px] relative z-50 border-b border-b-white90 dark:border-b-gray15 bg-white97 dark:bg-gray10 bg-[url("/assets/images/TopBanner/AbstractDesign1.png")] lg-custom:bg-[url("/assets/images/TopBanner/AbstractDesign.png")] bg-no-repeat bg-cover transition-all duration-500 ease-in-out transform ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full"
       }`}
       role="region"
