@@ -74,9 +74,9 @@ const Hero = ({ title, description }: HeroProps) => {
 
         {/* === Foreground Hero Image === */}
         <img
-          src="/assets/images/MainHero/main.png"
+          src="/assets/images/MainHero/main.webp"
           alt="Hero"
-          className="lg-custom:hidden absolute bottom-0 right-0"
+          className="lg-custom:hidden absolute object-cover object-bottom bottom-0 right-0"
         />
 
         {/* === Rotating Text Component === */}
@@ -86,9 +86,9 @@ const Hero = ({ title, description }: HeroProps) => {
         <img
           data-aos="fade-up"
           data-aos-delay="300"
-          src="/assets/images/MainHero/main.png"
+          src="/assets/images/MainHero/main.webp"
           alt="Hero"
-          className="hidden lg-custom:block  absolute bottom-0 lg-custom:h-[calc(100vh-142px)]  right-10"
+          className="hidden lg-custom:block  absolute bottom-0 lg-custom:h-[calc(100vh-142px)] object-contain lg-custom:object-cover object-bottom right-10"
         />
       </div>
     </div>
