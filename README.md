@@ -1,42 +1,121 @@
-<!-- Overview:
+# Estatien Real Estate | Digital Real Estate Platform
 
-Estatein is a modern, responsive real estate website that allows users to browse properties, view detailed information, add reviews, and easily contact the company. The platform features an elegant design, advanced search filters, rich property details, and an admin dashboard for efficient data management.
+Welcome to **Estatien Real Estate**, a modern digital platform for discovering, managing, and exploring properties. This React + Firebase-based web application provides users with a sleek, responsive, and interactive interface to browse real estate listings, view property details, and connect with agents.  
 
-📄 Pages :
+With a built-in **AI Chatbot powered by ChatGPT-5**, Estatien Real Estate offers a smart and personalized experience for every user.  
 
-1. Home Page – Quick overview of properties, statistics, customer testimonials, and a call-to-action.
-2. About Us – Introduction to the company, its values, team, and achievements.
-3. Properties – Property listings with advanced search filters.
-4. Property Details – Detailed information for each property with images, inquiry form, and an Add Review button for user reviews.
-5. Services – Overview of company services: sales, ownership, and investment consulting.
-6. Contact – Contact information, office locations, and an inquiry form.
+---
 
-⚙️ Technologies used:
+## Table of Contents  
 
-1. React – Frontend framework
-2. TypeScript – Strongly typed language for scalable development
-3. Tailwind CSS – Modern and responsive styling
-4. Redux Toolkit – State management
-5. Firebase Firestore – Data storage and real-time updates
+1. [Overview](#overview)  
+2. [Features](#features)  
+3. [Technologies Used](#technologies-used)  
+4. [Pages](#pages)  
+5. [Getting Started](#getting-started)   
+6. [Dashboard](#dashboard)  
+7. [Contact](#contact)  
 
-✨ Features :
+---
 
-1. Responsive Design: Seamlessly works across mobile, tablet, and desktop.
-2. Light & Dark Mode: Personalized user experience.
-3. Advanced Search: Filter by location, property type, price, size, and build year.
-4. Detailed Property Pages: Includes images, specifications, fees, and monthly costs.
-5. Add Reviews: Users can submit property reviews via the Add Review button.
-6. Interactive UI: Smooth animations for enhanced user experience.
-7. Reusable Components: Clean, scalable, and maintainable code.
+## Overview  
 
-🚀 Installation
+Estatien Real Estate is a digital property management and listing platform built with **React + Vite** and powered by **Firebase**.  
+It enables users to browse available properties, view detailed information, contact agents, and interact with a smart chatbot assistant.  
 
-1. Clone the repository :
+With full responsiveness and a connected dashboard, the platform ensures a seamless experience for clients, property owners, and administrators.  
 
-git clone https://github.com/Elin23/Estatein-GraduationProject 2. Navigate to the project folder:
-cd estatein 3. Install dependencies:
-npm install 4. Start the development server:
+---
+
+## Features  
+
+- **Property Listings:** Browse available properties from the Firebase database with filters.  
+- **Property Details Page:** View complete details, images, and specifications.  
+- **AI Chatbot Assistant:** Integrated with **ChatGPT-5** for real-time assistance.  
+- **Dashboard Integration:** Manage property data, users, and inquiries via Firebase.  
+- **Email Contact Form:** Powered by **EmailJS**, allowing users to send inquiries directly.  
+- **Responsive UI:** Works on desktop, tablet, and mobile.  
+- **Under Construction Page:** Placeholder for upcoming features.  
+
+---
+
+## Technologies Used  
+
+- **React (with Vite)**  
+- **TypeScript**  
+- **Tailwind CSS**  
+- **Firebase**  
+- **EmailJS**  
+- **ChatGPT-5 API**
+- **Redux Toolkit**  
+
+---
+
+## Pages  
+
+1. **Home** – Overview and featured properties.  
+2. **Services** – Description of services provided.  
+3. **About** – Information about Estatien’s mission and vision.  
+4. **Contact** – Contact form (EmailJS) + Chatbot.  
+5. **Properties** – Browse property listings from Firebase.  
+6. **Property Details** – Individual property details.  
+7. **Under Construction** – Placeholder page.  
+
+---
+
+## Getting Started  
+
+### Prerequisites  
+
+- Node.js (version 16 or higher)  
+- npm or yarn  
+
+### Installation  
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Elin23/Estatein-GraduationProject
+```
+2. Install dependencies:
+```bash
+npm install
+```
+3. Start the development server:
+```bash
 npm run dev
+```
+### API Integration
 
-🌐 Demo :
-https://estatein-team-x1.netlify.app/ -->
+- Chatbot: Connected with ChatGPT-5 API for conversational assistance.
+
+- Email Contact Form: Using EmailJS to send inquiries.
+
+### Firebase Integration
+
+- Property data storage.
+
+- User authentication and registration.
+
+- Dashboard connectivity.
+
+- Real-time updates for listings and inquiries.
+
+### Dashboard
+
+The Estatien Real Estate dashboard allows administrators and managers to efficiently manage the platform and monitor activity. Key features include:
+
+- **Submissions Management:** Review user requests, send email replies, and mark as Reviewed, Approved, or Rejected.  
+- **Properties Management:** Add, update, delete, and export property listings.  
+- **User Management:** Control user roles (Admin, Support, Sales) and access.  
+- **Content Sections:** Manage company achievements, values, team members, testimonials, FAQs, and platform steps.  
+- **Contact Requests:** Handle messages from users with options to respond via email and mark status.  
+- **Dashboard Stats & Notifications:** View key metrics like pending submissions, available/sold properties, and receive notifications for new requests.  
+- **Newsletter Simulation:** Users can subscribe to newsletters and receive confirmation emails.  
+
+> **Permissions:** Certain sections are restricted to Admins only, while others are accessible to Managers or Support roles as appropriate.
+
+## Contact
+
+For questions or support, please reach out at:
+
+- **Email:** [elinshaia23@gmail.com](mailto:elinshaia23@gmail.com)

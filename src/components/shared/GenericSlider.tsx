@@ -3,6 +3,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import TitleBtn from "../ui/TitleBtn";
 import { NextArrowIcon, PrevArrowIcon } from "../icons/SliderArrows";
+import { useLocation } from "react-router-dom";
 
 type SlidesPerView = {
   lg: number;
@@ -35,7 +36,9 @@ const GenericSlider = <T,>({
   onClick,
   debug = false,
 }: Props<T>) => {
-  const [perViewCurrent, setPerViewCurrent] = useState<number>(slidesPerView.lg);
+  const [perViewCurrent, setPerViewCurrent] = useState<number>(
+    slidesPerView.lg
+  );
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
@@ -70,7 +73,12 @@ const GenericSlider = <T,>({
     setIsEnd(safeIndex >= maxStart);
 
     if (debug) {
-      console.log("[syncDerivedFromIndex]", { safeIndex, perView, maxStart, group });
+      console.log("[syncDerivedFromIndex]", {
+        safeIndex,
+        perView,
+        maxStart,
+        group,
+      });
     }
   };
 
@@ -81,7 +89,7 @@ const GenericSlider = <T,>({
         const pv = Number(opt.perView);
         if (!Number.isNaN(pv) && pv > 0) return pv;
       }
-    } catch (e) { }
+    } catch (e) {}
     return fallback;
   };
 
@@ -113,7 +121,9 @@ const GenericSlider = <T,>({
         slider.current.moveToIdx(maxStart);
       }
 
-      requestAnimationFrame(() => syncDerivedFromIndex(currentIndex, slider.current));
+      requestAnimationFrame(() =>
+        syncDerivedFromIndex(currentIndex, slider.current)
+      );
     };
 
     handleResize();
@@ -136,8 +146,15 @@ const GenericSlider = <T,>({
     syncDerivedFromIndex(safeIdx, slider.current);
   }, [currentIndex, perViewCurrent, items.length]);
 
-  const effectivePerView = (slider && slider.current && (slider.current.options as any)?.slides?.perView) || perViewCurrent;
-  const totalGroups = Math.max(1, Math.ceil(items.length / Number(effectivePerView)));
+  const effectivePerView =
+    (slider &&
+      slider.current &&
+      (slider.current.options as any)?.slides?.perView) ||
+    perViewCurrent;
+  const totalGroups = Math.max(
+    1,
+    Math.ceil(items.length / Number(effectivePerView))
+  );
 
   const onPrev = () => {
     const perView = getPerViewFromSlider(slider.current, perViewCurrent);
@@ -147,7 +164,12 @@ const GenericSlider = <T,>({
     setCurrentIndex(nextIdx);
 
     if (debug) {
-      console.log("[onPrev] currentIndex ->", { from: currentIndex, to: nextIdx, perView, maxStart });
+      console.log("[onPrev] currentIndex ->", {
+        from: currentIndex,
+        to: nextIdx,
+        perView,
+        maxStart,
+      });
     }
     if (slider.current) slider.current.moveToIdx(nextIdx);
     requestAnimationFrame(() => syncDerivedFromIndex(nextIdx, slider.current));
@@ -161,15 +183,28 @@ const GenericSlider = <T,>({
     setCurrentIndex(nextIdx);
 
     if (debug) {
-      console.log("[onNext] currentIndex ->", { from: currentIndex, to: nextIdx, perView, maxStart });
+      console.log("[onNext] currentIndex ->", {
+        from: currentIndex,
+        to: nextIdx,
+        perView,
+        maxStart,
+      });
     }
     if (slider.current) slider.current.moveToIdx(nextIdx);
     requestAnimationFrame(() => syncDerivedFromIndex(nextIdx, slider.current));
   };
 
+  const location = useLocation();
+  const sliderBtnsStyle = location.pathname.includes("/properties")
+    ? "max-md:w-full max-md:justify-between"
+    : "";
+
   return (
     <div className="w-full mt-[40px] lg-custom:mt-[60px] 2xl:mt-[80px]">
-      <div ref={sliderRef} className="keen-slider mb-[30px] lg-custom:mb-10 2xl:mb-[50px] w-full">
+      <div
+        ref={sliderRef}
+        className="keen-slider mb-[30px] lg-custom:mb-10 2xl:mb-[50px] w-full"
+      >
         {items.map((item, index) => {
           const isVisible =
             index >= currentIndex && index < currentIndex + perViewCurrent;
@@ -190,7 +225,9 @@ const GenericSlider = <T,>({
         })}
       </div>
 
-      <div className={`${counterClassName} flex justify-between items-center pt-4 border-t border-t-white90 dark:border-t-gray15`}>
+      <div
+        className={`${counterClassName} flex justify-between items-center pt-4 border-t border-t-white90 dark:border-t-gray15`}
+      >
         {showCounter && (
           <p className="text-black dark:text-white text-base 2xl:text-xl font-medium hidden md:block">
             {String(currentGroup).padStart(2, "0")}
@@ -212,15 +249,16 @@ const GenericSlider = <T,>({
           </div>
         )}
 
-        <div className="flex items-center gap-2.5">
+        <div className={`flex items-center gap-2.5 ${sliderBtnsStyle}`}>
           <button
             data-testid="prev-btn"
             disabled={isBeginning}
             onClick={onPrev}
-            className={`p-2.5 2xl:p-3.5 border rounded-full w-[44px] 2xl:w-[58px] transition-all duration-300 border-white90 dark:border-gray15 ${isBeginning
+            className={`p-2.5 2xl:p-3.5 border rounded-full w-[44px] 2xl:w-[58px] transition-all duration-300 border-white90 dark:border-gray15 ${
+              isBeginning
                 ? "bg-inherit opacity-50 cursor-not-allowed"
                 : "bg-white97 dark:bg-gray10"
-              }`}
+            }`}
           >
             <PrevArrowIcon />
           </button>
@@ -237,10 +275,11 @@ const GenericSlider = <T,>({
             data-testid="next-btn"
             disabled={isEnd}
             onClick={onNext}
-            className={`p-2.5 2xl:p-3.5 border rounded-full w-[44px] 2xl:w-[58px] transition-all duration-300 border-white90 dark:border-gray15 ${isEnd
+            className={`p-2.5 2xl:p-3.5 border rounded-full w-[44px] 2xl:w-[58px] transition-all duration-300 border-white90 dark:border-gray15 ${
+              isEnd
                 ? "bg-inherit opacity-50 cursor-not-allowed"
                 : "bg-white97 dark:bg-gray10"
-              }`}
+            }`}
           >
             <NextArrowIcon />
           </button>
