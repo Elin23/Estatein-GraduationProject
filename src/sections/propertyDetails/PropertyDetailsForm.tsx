@@ -56,7 +56,7 @@ const SkeletonBox: React.FC<{ height?: string }> = ({ height = "h-[52px]" }) => 
 function PropertyDetailsForm() {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
-  const { current, error, loading } = useAppSelector(
+  const { current, loading } = useAppSelector(
     (state) => ({
       current: state.properties.current,
       error: state.properties.error,
