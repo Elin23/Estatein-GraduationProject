@@ -64,8 +64,8 @@ const PricingDetailsSection = () => {
               <h5 className="text-sm md:text-base 2xl:text-xl text-gray40 dark:text-gray60 font-medium leading-[150%]">
                 Listing Price
               </h5>
-              <span className="text-2xl md:text-[30px] 2xl:text-[40px] text-black dark:text-white font-semibold">
-                {currentProperty.listingPrice}
+              <span className="text-2xl md:text-[30px] 2xl:text-[40px] text-black dark:text-white font-semibold flex">
+              <span> $ </span><span>{currentProperty.price}</span>
               </span>
             </div>
 
