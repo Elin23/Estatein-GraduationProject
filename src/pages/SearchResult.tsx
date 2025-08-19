@@ -37,12 +37,13 @@ const SearchResults: React.FC = () => {
                 image: property.images?.[0],
                 title: property.title,
                 desc: property.description,
+                descriptionLong:property.descriptionLong ,
                 details: [
                   { label: property.bedrooms?.toString(), icon: "bed" },
                   { label: property.bathrooms?.toString(), icon: "bath" },
                   { label: property.type, icon: "villa" },
                 ],
-                Price: property.price,
+                Price: property.Price,
                 id: property.id,
                 tags: property.tags,
               }}
