@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const DOTS = "...";
 function range(start: number, end: number) {
@@ -53,13 +52,25 @@ function PaginationComponent({
   return (
     <div className="flex justify-center items-center gap-2 mx-8">
       <div className="flex  justify-center gap-3  sm:space-y-0 space-y-3 flex-wrap mt-6">
+        {/* Previous */}
         <button
           onClick={() => onPageChange(Math.max(1, currentPage - 1))}
           disabled={currentPage === 1}
           className={`${baseBtn} ${circleSize} bg-purple75 lg-custom:mb-0`}
         >
-          <ChevronLeft size={16} />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
         </button>
+
+        {/* Numbers */}
         <div className="flex !items-center justify-center gap-3 ">
           {paginationRange.map((page, index) =>
             typeof page === "number" ? (
@@ -83,12 +94,22 @@ function PaginationComponent({
           )}
         </div>
 
+        {/* Next */}
         <button
           onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
           disabled={currentPage === totalPages}
           className={`${baseBtn} ${circleSize} bg-purple75  lg-custom:mb-0`}
         >
-          <ChevronRight size={16} />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
     </div>
