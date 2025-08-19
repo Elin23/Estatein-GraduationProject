@@ -60,7 +60,7 @@ const MainServicesSection = ({
             {...pvUnlockAos(propertyValueData.length)}
           >
             <UnlockCardComponent
-              cardStyle='col-span-1 md:col-span-2 p-6 md:py-[45.5px] md:px-10 2xl:py-[59.5px] 2xl:px-[50px] bg-[url("/assets/images/AbstractDesign2.png")] bg-no-repeat bg-cover'
+              cardStyle='col-span-1 md:col-span-2 p-6 md:py-[45.5px] md:px-10 2xl:py-[59.5px] 2xl:px-[50px] bg-[url("/assets/images/AbstractDesign2.webp")] bg-no-repeat bg-cover'
               title={unlockCardData.title}
               titleStyle="text-xl md:text-2xl 2xl:text-[30px] font-bold"
               desc={unlockCardData.desc}

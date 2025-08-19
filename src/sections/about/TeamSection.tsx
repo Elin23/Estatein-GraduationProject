@@ -9,7 +9,7 @@ import { teamItemAos } from "../../utlis/Anamation";
 import GenericSlider from "../../components/shared/GenericSlider";
 
 const SkeletonCard = () => (
-  <div className="flex flex-col w-full gap-10 lg-custom:gap-[50px] p-5 lg-custom:p-6 2xl:p-[30px] rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse">
+  <div className="flex flex-col w-full gap-10 lg-custom:gap-[50px] p-5 lg-custom:p-6 2xl:p-[30px] rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse mt-10 lg-custom:mt-[60px] 2xl:mt-20">
     <div className="relative">
       <div className="rounded-[10px] 2xl:rounded-xl w-full h-[268px] lg-custom:h-[220px] 2xl:h-[253px] bg-gray-300 dark:bg-gray-600" />
       <div className="bg-purple90 dark:bg-purple60 absolute bottom-0 py-3.5 px-[26px] rounded-[43px] transform translate-y-1/2 left-1/2 -translate-x-1/2 flex items-center justify-center gap-3 cursor-pointer opacity-70" />
@@ -71,7 +71,7 @@ const TeamSection = () => {
       ) : (
         <GenericSlider<Team>
           items={items}
-          slidesPerView={{ lg: 4, md: 2, sm: 1 }} 
+          slidesPerView={{ lg: 4, md: 2, sm: 1 }}
           showCounter
           counterClassName="mt-0 !justify-end"
           renderSlide={(team, index) => (

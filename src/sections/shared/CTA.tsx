@@ -31,13 +31,13 @@ export function CTA({ title, description, buttonLabel, className }: CTAProps) {
         </MainButton>
         </div>
         <img
-          src="/assets/images/StartJourney/AbstractDesign.png"
+          src="/assets/images/StartJourney/AbstractDesign.webp"
           alt="Abstract"
           className="absolute bottom-0 left-0 pointer-events-none scale-x-[-1] opacity-5 dark:opacity-100"
         />
 
         <img
-          src="/assets/images/StartJourney/AbstractDesign.png"
+          src="/assets/images/StartJourney/AbstractDesign.webp"
           alt="Abstract"
           className="absolute bottom-0 right-0 pointer-events-none opacity-5 dark:opacity-100"
         />
