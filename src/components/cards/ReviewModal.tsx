@@ -118,7 +118,7 @@ function ReviewModal({ closeModal, onSuccess }: ReviewModalProps) {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className={`relative w-full max-h-[80vh] overflow-y-auto max-w-3xl bg-white dark:bg-black rounded-[10px] 2xl:rounded-xl shadow-2xl overflow-hidden p-8 flex flex-col gap-8
+        className={`relative w-full max-lg-custom:max-h-[80vh] max-lg-custom:overflow-y-auto max-w-3xl bg-white dark:bg-black rounded-[10px] 2xl:rounded-xl shadow-2xl overflow-hidden p-8 flex flex-col gap-8
         transform transition-all duration-300
         ${
           isVisible
