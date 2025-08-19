@@ -60,7 +60,7 @@ function FaqSection() {
           slidesPerView={{ lg: 3, md: 2, sm: 1 }}
           showCounter={true}
           titleBtnLabel="View All FAQ’s"
-          navigateTo="allFaq"
+          navigateTo="/allFaq"
           onClick={() => scrollToTop()}
         />
       )}
