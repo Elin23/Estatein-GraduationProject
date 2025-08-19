@@ -51,6 +51,7 @@ const Navbar = ({ isBannerVisible, logo: Logo, navData }: NavbarProps) => {
   }, [isMenuOpen])
 
   return (
+    <div>
     <nav
       className={`bg-purple70/60 backdrop-blur-xl dark:backdrop-blur-none dark:bg-gray10 dark:text-white py-5 lg-custom:py-3.5 2xl:py-5 fixed w-full z-50 border-b-2 border-purple75 dark:border-b-2 dark:border-b-gray15 transition-all duration-700 ease-in-out h-[95px] ${
         isBannerVisible
@@ -106,17 +107,21 @@ const Navbar = ({ isBannerVisible, logo: Logo, navData }: NavbarProps) => {
           </div>
         </div>
 
-        {isMenuOpen && (
-  <div className="lg-custom:hidden mt-4 relative">
+        
+
+      </SectionWrapper>
+    </nav>
+    {isMenuOpen && (
+  <div className="lg-custom:hidden  fixed left-4 right-4 top-[calc(95px+16px)] z-[60] ">
     {/* blur layer */}
     <div
-      className="absolute inset-0 rounded-lg bg-gray08/30 backdrop-blur-lg"
+      className="absolute inset-0 rounded-lg backdrop-blur-xl bg-purple70/60 dark:bg-gray08/30"
       {...navMobileBlurAos()}
     />
 
     {/* ul content */}
     <ul
-      className="relative flex flex-col gap-4 p-5 rounded-lg border border-gray15 z-10"
+      className="relative z-10 flex flex-col gap-4 p-5 rounded-lg border dark:border-gray15 border-purple99"
       {...navMobileContainerAos()}
       role="menu"
     >
@@ -143,8 +148,7 @@ const Navbar = ({ isBannerVisible, logo: Logo, navData }: NavbarProps) => {
   </div>
 )}
 
-      </SectionWrapper>
-    </nav>
+</div>
   )
 }
 
