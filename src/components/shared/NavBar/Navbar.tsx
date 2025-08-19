@@ -71,7 +71,7 @@ const Navbar = ({ isBannerVisible, logo: Logo, navData }: NavbarProps) => {
             <Logo className="w-24 md:w-28 2xl:w-40 text-white" />
           </NavLink>
           <ul
-            className="hidden lg-custom:flex 2xl:font-medium leading-[150%] lg-custom:text-sm 2xl:text-lg"
+            className="hidden lg-custom:flex gap-5 2xl:font-medium leading-[150%] lg-custom:text-sm 2xl:text-lg"
             role="menubar"
           >
             {mainNavLinks.map((link, index) => (
