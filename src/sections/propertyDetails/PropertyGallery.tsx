@@ -154,7 +154,7 @@ const PropertyGallery = ({ id }: PropertyGalleryProps) => {
           <p className="text-gray40 dark:text-gray60 text-sm 2xl:text-[16px] font-medium">
             Price
           </p>
-          <p className="font-semibold text-xl 2xl:text-2xl">{current?.price}</p>
+          <p className="font-semibold text-xl 2xl:text-2xl">${current?.price}</p>
         </div>
       </div>
 
