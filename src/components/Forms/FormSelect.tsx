@@ -69,7 +69,11 @@ function FormSelect({ label, name, value, placeholder, onChange, options, error,
             {selected || placeholder || "Select"}
           </span>
 
-          <div className={`absolute top-1/2 transform -translate-y-1/2 ${classIcon}`} onClick={() => setIsOpen(prev => !prev)}>
+          <div className={`absolute top-1/2 transform -translate-y-1/2 ${classIcon}`} 
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsOpen(prev => !prev);
+          }}>
             <DropdownIcon
               className={`text-black dark:text-white transition-transform duration-200 cursor-pointer ${
                 isOpen ? "rotate-180" : ""
